@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  date_published: MyString
+  contents: MyText
+  museId: 1
+  location: MyString
+  level: MyString
+  date_saved: 2018-02-20 11:53:56
+  applied_status: false
+  date_applied: MyString
+  response_date: MyString
+  followup_date: MyString
+  interview_invite: false
+  interview_1_date: MyString
+  interview_1_type: MyString
+  interview_2_date: MyString
+  interview_2_type: MyString
+  interview_3_date: MyString
+  interview_3_type: MyString
+
+two:
+  title: MyString
+  date_published: MyString
+  contents: MyText
+  museId: 1
+  location: MyString
+  level: MyString
+  date_saved: 2018-02-20 11:53:56
+  applied_status: false
+  date_applied: MyString
+  response_date: MyString
+  followup_date: MyString
+  interview_invite: false
+  interview_1_date: MyString
+  interview_1_type: MyString
+  interview_2_date: MyString
+  interview_2_type: MyString
+  interview_3_date: MyString
+  interview_3_type: MyString
