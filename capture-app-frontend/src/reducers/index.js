@@ -29,11 +29,9 @@ const user = (state = {currentUser: null, savedJobs: [], savedCompanies: [], sav
       return state;
 
     case EDIT_JOB:
-    debugger
       let index = state.savedJobs.findIndex((job) => {
         return job.id == action.job.id
       })
-      console.log("in EDIT_JOB reducder", index)
       const savedJobs = [...state.savedJobs.slice(0, index),
         action.job,
         ...state.savedJobs.slice(index + 1)
@@ -60,27 +58,30 @@ const user = (state = {currentUser: null, savedJobs: [], savedCompanies: [], sav
       return state;
 
     case ADD_NEW_NOTE:
-
       let userNotes = state.savedNotes
-
-    state=Object.assign({},
-      state,
-      {
-        savedNotes: [...userNotes, action.newNote],
-      }
-    );
-    return state;
-
+      state=Object.assign({},
+        state,
+        {
+          savedNotes: [...userNotes, action.newNote],
+        }
+      );
+      return state;
 
     case EDIT_NOTE:
       let noteIndex = state.savedNotes.findIndex((note) => {
         return note.id == action.note.id
       })
-      return [
+      const savedNotes = [
         ...state.savedNotes.slice(0, noteIndex),
         action.note,
         ...state.savedNotes.slice(noteIndex + 1)
       ];
+      return Object.assign({},
+      state,
+      {
+        savedNotes,
+      },
+    );
 
 
     case ADD_NEW_BOOKMARK:

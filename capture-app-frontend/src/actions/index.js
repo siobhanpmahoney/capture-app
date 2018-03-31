@@ -61,7 +61,8 @@ export function editJob(userid, selectedJob) {
       .then(json => dispatch({
         type: EDIT_JOB,
         job: selectedJob
-      }))
+      })
+    )
   }
 }
 
@@ -111,42 +112,43 @@ export function saveNewJob(userid, selectedJob) {
       .then(json => dispatch({
         type: ADD_NEW_JOB,
         savedJobs: json
-      }))
-    }
-  }
-
-  export function addNewNote(selectedNote, noteUserId, noteCompanyId, noteJobId) {
-    return(dispatch) => {
-       fetch(`http://localhost:3000/api/v1/notes`, {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accepts': 'application/json'
-        },
-        body: JSON.stringify({
-          title: selectedNote.title,
-          content: selectedNote.content,
-          user_id: noteUserId,
-          company_id: noteCompanyId,
-          job_id: noteJobId
-        })
       })
-      .then(response => response.json())
-      .then(json => {
+    )
+  }
+}
 
-        dispatch({
+export function addNewNote(selectedNote, noteUserId, noteCompanyId, noteJobId) {
+  return(dispatch) => {
+    fetch(`http://localhost:3000/api/v1/notes`, {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      body: JSON.stringify({
+        title: selectedNote.title,
+        content: selectedNote.content,
+        user_id: noteUserId,
+        company_id: noteCompanyId,
+        job_id: noteJobId
+      })
+    })
+    .then(response => response.json())
+    .then(json => {
+
+      dispatch({
         type: ADD_NEW_NOTE,
         newNote: json,
         user: noteUserId
       })
     })
-    }
   }
+}
 
-  export function editNote(selectedNote, noteUserId, noteJobId, noteCompanyId) {
-    let url = "http://localhost:3000/api/v1/notes/" + selectedNote.id
-    return(dispatch) => {
-      return fetch(url,
+export function editNote(selectedNote, noteUserId, noteJobId, noteCompanyId) {
+  let url = "http://localhost:3000/api/v1/notes/" + selectedNote.id
+  return(dispatch) => {
+    return fetch(url,
       {
         method: 'PATCH',
         headers: {
@@ -165,33 +167,34 @@ export function saveNewJob(userid, selectedJob) {
       .then(json => dispatch({
         type: EDIT_NOTE,
         note: selectedNote
-      }))
-    }
-  }
-
-  export function addNewBookmark(bookmarkTitle, bookmarkSourceName, bookmarkSummary, bookmarkUrl, bookmarkUserId, bookmarkCompanyId) {
-    console.log(bookmarkTitle, bookmarkUrl, bookmarkUserId, bookmarkCompanyId)
-    return (dispatch) => {
-      fetch('http://localhost:3000/api/v1/bookmarks', {
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accepts': 'application/json'
-        },
-        body: JSON.stringify({
-          title: bookmarkTitle,
-          source_name: bookmarkSourceName,
-          summary: bookmarkSummary,
-          url: bookmarkUrl,
-          user_id: bookmarkUserId,
-          company_id: bookmarkCompanyId
-        })
       })
-      .then(response => response.json())
-      .then(json => dispatch({
-        type: ADD_NEW_BOOKMARK,
-        newBookmark: json,
-        user: bookmarkUserId
-      }))
-    }
+    )
   }
+}
+
+export function addNewBookmark(bookmarkTitle, bookmarkSourceName, bookmarkSummary, bookmarkUrl, bookmarkUserId, bookmarkCompanyId) {
+  console.log(bookmarkTitle, bookmarkUrl, bookmarkUserId, bookmarkCompanyId)
+  return (dispatch) => {
+    fetch('http://localhost:3000/api/v1/bookmarks', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      body: JSON.stringify({
+        title: bookmarkTitle,
+        source_name: bookmarkSourceName,
+        summary: bookmarkSummary,
+        url: bookmarkUrl,
+        user_id: bookmarkUserId,
+        company_id: bookmarkCompanyId
+      })
+    })
+    .then(response => response.json())
+    .then(json => dispatch({
+      type: ADD_NEW_BOOKMARK,
+      newBookmark: json,
+      user: bookmarkUserId
+    }))
+  }
+}

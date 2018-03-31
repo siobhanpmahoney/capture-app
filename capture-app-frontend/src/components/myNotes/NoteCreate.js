@@ -2,13 +2,14 @@ import React from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../../actions'
+import { withRouter } from 'react-router'
 
 class NoteCreate extends React.Component {
   render() {
     return (
       <div className="newNoteForm">
       <form>
-      <button onClick={this.props.addTestNewNote}>Save</button><textarea className="noteTitle" name="title"  type="contentEditable" onChange={this.props.noteEditListener}>
+      <button onClick={this.props.addTestNewNote}>Save</button><textarea className="noteTitle" name="title" type="contentEditable" onChange={this.props.noteEditListener}>
         </textarea>
 
       <textarea className="noteContent" name="content"  type="contentEditable" onChange={this.props.noteEditListener}>
@@ -36,4 +37,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NoteCreate);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NoteCreate));

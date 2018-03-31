@@ -156,8 +156,6 @@ class MyJobsItemDetail extends React.Component {
 
   addTestNewNote = (event) => {
     event.preventDefault()
-
-
     console.log(this.state.displayNote, this.props.currentUser.id, this.state.company.id, this.state.job.id)
     this.props.addNewNote(this.state.displayNote, this.props.currentUser.user.id, this.state.company.id, this.state.job.id)
   }
