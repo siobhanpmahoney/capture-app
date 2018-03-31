@@ -13,6 +13,8 @@ import * as Actions from './actions'
 import { loadState, saveState } from './localStorage'
 
 import { composeWithDevTools } from 'redux-devtools-extension';
+import 'draft-js/dist/Draft.css';
+
 
 const persistedState = loadState();
 

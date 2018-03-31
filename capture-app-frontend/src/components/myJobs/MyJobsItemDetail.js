@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import * as Actions from '../../actions'
 import NotesContainer from '../myNotes/NotesContainer'
 import NoteCreate from '../myNotes/NoteCreate'
+
+import MyEditor from '../myNotes/MyEditor'
+
+
 import BookmarkList from '../myBookmarks/BookmarkList'
 import MyJobsDetailDashboard from './MyJobsDetailDashboard'
 import MyJobsResourceFeedInterviews from './MyJobsResourceFeedInterviews'
@@ -266,6 +270,10 @@ class MyJobsItemDetail extends React.Component {
 
       return (
         <div className="myJobDetail">
+          <div>
+            Editor:
+            <MyEditor />
+          </div>
           <div className="header">
           <h2 className="myJobTitle">{this.state.job.title}</h2>
           <h3 className="myJobDetailCompanyName">{this.props.company.name}</h3>
