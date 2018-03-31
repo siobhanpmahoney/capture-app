@@ -1,7 +1,7 @@
 import React from 'react';
 import CompanyFilter from './CompanyFilter'
 import CompanySearchResultList from './CompanySearchResultList'
-import { HashRouter } from 'react-router-dom'
+import { HashRouter, withRouter } from 'react-router-dom'
 
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -99,7 +99,7 @@ class ExploreCompanyContainer extends React.Component{
 
 
    render() {
-     
+
      return (
        <div style={{margin:"1em"}}>
        <h2>Search for a Company!</h2>
@@ -135,4 +135,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ExploreCompanyContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(ExploreCompanyContainer));

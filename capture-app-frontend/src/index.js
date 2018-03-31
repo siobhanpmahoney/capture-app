@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { BrowserRouter as Router, Route, } from 'react-router-dom'
-
+import { BrowserRouter } from 'react-router-dom'
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
@@ -17,6 +16,13 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 const persistedState = loadState();
 
+// function configureStore(){
+//   return createStore(
+//     rootReducer,
+//     persistedState,
+//     composeWithDevTools(applyMiddleware(thunk))}
+//
+// const store = configureStore()
 
 const store = createStore(reducers, persistedState,
   composeWithDevTools(applyMiddleware(thunk))
@@ -32,8 +38,8 @@ store.subscribe(throttle(() => {
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    <BrowserRouter>
       <App />
-    </Router>
+    </BrowserRouter>
   </Provider>, document.getElementById('root'));
 registerServiceWorker();

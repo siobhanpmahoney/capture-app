@@ -29,14 +29,21 @@ const user = (state = {currentUser: null, savedJobs: [], savedCompanies: [], sav
       return state;
 
     case EDIT_JOB:
+    debugger
       let index = state.savedJobs.findIndex((job) => {
         return job.id == action.job.id
       })
-      return [
-        ...state.savedJobs.slice(0, index),
+      console.log("in EDIT_JOB reducder", index)
+      const savedJobs = [...state.savedJobs.slice(0, index),
         action.job,
         ...state.savedJobs.slice(index + 1)
       ];
+      return Object.assign({},
+        state,
+        {
+          savedJobs,
+        },
+      );
 
     case DELETE_JOB:
       const jobs = state.savedJobs.filter((job) => job.id != action.selectedJobId)

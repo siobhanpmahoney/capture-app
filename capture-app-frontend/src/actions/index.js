@@ -24,10 +24,14 @@ export function loadCurrentUser(user) {
   }
 }
 
-export function editJob(selectedJob) {
+export function editJob(userid, selectedJob) {
   console.log("in editJob action")
+  console.log(userid)
+  console.log(selectedJob)
   console.log("in editJob action, and this is state.currentUser")
-  let url = "http://localhost:3000/api/v1/users/1/jobs/" + selectedJob.id
+  let url = `http://localhost:3000/api/v1/users/${userid}/jobs/${selectedJob.id}`
+  console.log(url)
+
 
   return(dispatch) => {
     return fetch(url,

@@ -52,7 +52,7 @@ class MyJobsContainer extends React.Component {
   render() {
 
     const displayJobs = this.showJobs()
-  
+
     return(
       <div className="mySavedJobList">
         <h2>Saved Jobs</h2>
@@ -101,4 +101,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyJobsContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MyJobsContainer));

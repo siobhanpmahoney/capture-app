@@ -63,6 +63,7 @@ class App extends Component {
 
 
   componentDidMount() {
+
     const token=localStorage.getItem('token')
     if (token) {
       return fetch("http://localhost:3000/api/v1/current_user", {
@@ -99,8 +100,9 @@ class App extends Component {
     this.props.saveNewJob(userId, selectedJob)
   }
 
-  editJob = (selectedJob) => {
-    this.props.editJob(selectedJob)
+  editJob = (event, userId, selectedJob) => {
+    event.preventDefault()
+    return this.props.editJob(userId, selectedJob)
   }
 
   deleteJob = (selectedJobId) => {
@@ -122,11 +124,16 @@ class App extends Component {
     this.props.addNewBookmark(bookmarkTitle, bookmarkSourceName, bookmarkSummary, bookmarkUrl, bookmarkUserId, bookmarkCompanyId)
   }
 
-  relevantNotes = (company) => {
-
-    this.props.savedNotes.filter((note) => {
-      return note.company_id == company.id
+  relevantNotes = (jobId) => {
+    console.log(jobId)
+    let j = this.props.savedJobs.find((job) => {
+      return job.id == jobId
     })
+    console.log(j)
+    let relNotes = this.props.savedNotes.filter((note) => {
+      return note.company_id == j.company_id
+    })
+    return relNotes
   }
 
 
@@ -135,16 +142,8 @@ class App extends Component {
 
 
   render() {
-    if (!this.props.currentUser) {
-      return(<div>Loading...</div>)
-    }
-    if (!this.props.currentUser.user){
-      return(<div>Loading...</div>)
-    }
-    if (!this.props.currentUser.user.username){
-      return(<div>Loading...</div>)
-    }
-    console.log("in app and i'm looking at this.props.currentUser", this.props.currentUser.user.id)
+
+
 
     // if (!this.props.savedJobs) {
     //   return <div>Loading</div>;
@@ -184,7 +183,7 @@ class App extends Component {
 
            company = {this.props.savedCompanies.find((company) => company.id == this.props.savedJobs.find((job) => job.id == props.match.params.jobId).company_id)}
 
-           savedJobs={this.props.savedJobs} savedCompanies={this.props.savedCompanies} savedNotes={this.props.savedNotes} relevantNotes={this.relevantNotes} editJob={this.props.editJob} addJob={this.props.addJob}  addNewNote={this.props.addNewNote} editNote={this.editNote} renderedJob={this.props.renderedJob} renderedCompany={this.props.renderedCompany} /> } />
+           savedJobs={this.props.savedJobs} savedCompanies={this.props.savedCompanies} savedNotes={this.props.savedNotes} relevantNotes={this.relevantNotes(props.match.params.jobId)} editJob={this.props.editJob} addJob={this.props.addJob}  addNewNote={this.props.addNewNote} editNote={this.editNote} renderedJob={this.props.renderedJob} renderedCompany={this.props.renderedCompany} /> } />
 
         </div>
       </Router>

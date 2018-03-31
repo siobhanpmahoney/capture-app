@@ -25,7 +25,7 @@ class MyJobsItem extends React.Component {
   }
 
   render() {
-    
+
     return(
       <div className="mySavedJob" style={{background:"white", color:"#3A4A4D", fontSize:"13.5px", style:"inlineBlock", margin:"1em"}}>
         <div style={{background:"#333F4A", margin:"-.25em"}}>
@@ -33,7 +33,8 @@ class MyJobsItem extends React.Component {
         </div>
         <div style={{paddingTop:"0.5em"}}>
         <Link to={`/myjobs/${this.props.job.id}`}
-          job={this.props.job} loadSavedJob={this.props.loadSavedJob}  >  <span className="jobSearchResultCompany" style={{fontWeight:"500"}}>{this.props.job.title}</span> </Link>
+          job={this.props.job} loadSavedJob={this.props.loadSavedJob}>
+          <span className="jobSearchResultCompany" style={{fontWeight:"500"}}>{this.props.job.title}</span> </Link>
 
         <div className="dateSaved">Date saved: {this.formattedSavedDate()}</div>
       </div>
