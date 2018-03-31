@@ -28,7 +28,7 @@ class JobSearchResultItem extends React.Component {
   saveJob = (event) => {
 
     event.preventDefault()
-    console.log(this.props)
+
 
     this.props.addToSavedJobs(this.props.job)
 

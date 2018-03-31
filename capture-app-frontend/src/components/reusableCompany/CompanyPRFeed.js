@@ -34,8 +34,7 @@ formattedDate = (date) => {
 }
 
 addBookmark = (pr) => {
-  console.log("in PR component")
-  console.log(pr.title, pr.source.name, pr.description, pr.url, this.props.user.user.id, this.props.company.id)
+
   this.props.addBookmark(pr.title, pr.source.name, pr.description, pr.url, this.props.user.user.id, this.props.company.id)
 }
 
@@ -50,7 +49,6 @@ dynamicBookmarkIcon = (info) => {
 }
 
   render() {
-    console.log(this.state)
     if (!this.props) {
       return<div>Loading!</div>
     }

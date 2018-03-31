@@ -6,8 +6,7 @@ import * as Actions from '../../actions'
 class BookmarkList extends React.Component {
 
   render() {
-    console.log("in bookmark")
-    console.log(this.props.bookmarks)
+  
     return (
       <div>
 

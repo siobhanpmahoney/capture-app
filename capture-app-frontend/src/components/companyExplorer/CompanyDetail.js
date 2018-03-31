@@ -24,12 +24,12 @@ class CompanyDetail extends React.Component {
 
   componentDidMount() {
     let musecompanyid = this.props.museCompanyId
-    console.log(musecompanyid)
+
 
     // let userid = this.props.currentUser.user.id
     // let url = `http://localhost:3000/api/v1/users/${userid}/companies/${companyid}`
     let url = `https://api-v2.themuse.com/companies/${musecompanyid}`
-    console.log(url)
+    
     fetch(url)
     .then(response => response.json())
     .then(json => this.setState({

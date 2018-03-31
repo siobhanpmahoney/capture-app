@@ -22,7 +22,7 @@ class MyJobsResourceFeedInterviews extends React.Component {
   }
 
 addBookmark = (article) => {
-  console.log("in PR component")
+
   this.props.addBookmark(article.name, article.refs.landing_page, this.props.user.id, this.props.company.id)
 }
 
@@ -38,7 +38,6 @@ dynamicBookmarkIcon = (info) => {
 
   render() {
 
-console.log(this.props)
 
     return (
       <div className="postList">

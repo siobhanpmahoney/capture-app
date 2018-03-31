@@ -9,7 +9,7 @@ import MyCompanyDetail from './MyCompanyDetail'
 class MyCompanyListItem extends React.Component {
 
   render() {
-    console.log(this.props)
+  
     return (
       <div className="companySearchResultCard">
 

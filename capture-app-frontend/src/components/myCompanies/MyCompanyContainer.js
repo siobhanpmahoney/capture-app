@@ -34,7 +34,7 @@ class MyCompanyContainer extends React.Component {
     if (!this.props.savedCompanies) {
       return <div>Loading...</div>
     }
-    console.log(this.props)
+  
     return (
       <div>
         <h1>Saved Companies</h1>

@@ -86,7 +86,7 @@ class MyJobsItemDetail extends React.Component {
 
   dashboardEditSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state.job)
+
 
     window.location = `/myjobs/${this.props.jobId}`
     this.props.editJob(this.state.job)
@@ -94,7 +94,7 @@ class MyJobsItemDetail extends React.Component {
 
   renderNewNoteForm = (event) => {
     event.preventDefault()
-    console.log("made it to renderNewNoteForm")
+
     let clearDisplayNote = {}
     this.setState({
       displayNote: clearDisplayNote,
@@ -103,7 +103,7 @@ class MyJobsItemDetail extends React.Component {
   }
 
   noteTypeRender = () => {
-    console.log("in noteType Render")
+
     if (this.state.noteStatusNew) {
       return (
         <div className="newNoteForm">
@@ -129,7 +129,7 @@ class MyJobsItemDetail extends React.Component {
   addTestNewNote = (event) => {
     event.preventDefault()
 
-    console.log("adding new?")
+
     console.log(this.state.displayNote, this.props.currentUser.id, this.state.company.id, this.props.job.id)
     this.props.addNewNote(this.state.displayNote, this.props.currentUser.user.id, this.state.company.id, this.props.job.id)
   }
@@ -139,7 +139,7 @@ class MyJobsItemDetail extends React.Component {
 
     event.preventDefault()
     let selectedNote = this.relevantNotes().find((note) => note.id == event.target.id)
-    console.log(selectedNote)
+
     this.setState({
       displayNote: selectedNote,
       noteStatusNew: false
@@ -165,13 +165,9 @@ class MyJobsItemDetail extends React.Component {
   }
 
   relevantNotes = () => {
-    console.log(this.props)
-    console.log(this.props.savedNotes)
+
     return this.props.savedNotes.filter((note) => {
-      console.log(note)
-      console.log(note.company_id)
-      console.log(this.props.company)
-      console.log(this.props.company.id)
+      
       return note.company_id == this.props.company.id
     })
   }

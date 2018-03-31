@@ -25,10 +25,10 @@ export function loadCurrentUser(user) {
 }
 
 export function editJob(selectedJob) {
+  console.log("in editJob action")
+  console.log("in editJob action, and this is state.currentUser")
   let url = "http://localhost:3000/api/v1/users/1/jobs/" + selectedJob.id
-  console.log(url)
-  console.log('selectedJob', selectedJob)
-  console.log(selectedJob.id)
+
   return(dispatch) => {
     return fetch(url,
       {
@@ -81,11 +81,9 @@ export function deleteJob(selectedJobId) {
   }
 }
 
-export function saveNewJob(selectedJob) {
-  console.log("in action - saveNewJob")
-  console.log(selectedJob)
+export function saveNewJob(userid, selectedJob) {
   return(dispatch) => {
-    fetch("http://localhost:3000/api/v1/users/1/jobs",
+    fetch(`http://localhost:3000/api/v1/users/${userid}/jobs`,
       {
         method: 'post',
         headers: {
@@ -117,7 +115,6 @@ export function saveNewJob(selectedJob) {
   }
 
   export function addNewNote(selectedNote, noteUserId, noteCompanyId, noteJobId) {
-    console.log(selectedNote, noteUserId, noteCompanyId, noteJobId)
     return(dispatch) => {
        fetch(`http://localhost:3000/api/v1/notes`, {
         method: 'post',

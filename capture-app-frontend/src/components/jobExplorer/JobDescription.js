@@ -6,7 +6,7 @@ import * as Actions from '../../actions'
 class JobDescription extends React.Component {
   constructor(props) {
     super(props)
-    console.log("hi")
+
     this.state = {
       job: null
     }
@@ -71,8 +71,7 @@ class JobDescription extends React.Component {
 
 
   render() {
-    console.log(this.props)
-    console.log(this.state)
+    
     if (!this.state.job) {
       return <div>Loading</div>;
     }

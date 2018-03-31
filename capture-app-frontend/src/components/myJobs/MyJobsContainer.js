@@ -43,17 +43,16 @@ class MyJobsContainer extends React.Component {
       filters.forEach((f) => {
         jobs = jobs.filter((job) => job[f] == this.state.filterSelection[f])
       })
-      console.log(jobs)
+
       return jobs
     }
   }
 
 
   render() {
-    console.log("in render")
-    console.log(this.state)
+
     const displayJobs = this.showJobs()
-    console.log(displayJobs)
+  
     return(
       <div className="mySavedJobList">
         <h2>Saved Jobs</h2>

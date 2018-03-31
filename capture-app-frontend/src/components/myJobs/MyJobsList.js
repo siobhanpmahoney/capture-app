@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect, NavLink, Link, withRou
 
 
 const MyJobsList = ({user, savedJobs, savedCompanies, savedNotes, loadSavedJob}) => {
-  console.log(savedJobs)
+
   return (
 
     <div className="myJobList">

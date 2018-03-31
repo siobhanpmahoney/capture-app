@@ -95,7 +95,8 @@ class App extends Component {
   }
 
   addToSavedJobs = (selectedJob) => {
-    this.props.saveNewJob(selectedJob)
+    let userId = (this.props.currentUser.user.id).toString()
+    this.props.saveNewJob(userId, selectedJob)
   }
 
   editJob = (selectedJob) => {
@@ -134,7 +135,16 @@ class App extends Component {
 
 
   render() {
-    console.log(this.props)
+    if (!this.props.currentUser) {
+      return(<div>Loading...</div>)
+    }
+    if (!this.props.currentUser.user){
+      return(<div>Loading...</div>)
+    }
+    if (!this.props.currentUser.user.username){
+      return(<div>Loading...</div>)
+    }
+    console.log("in app and i'm looking at this.props.currentUser", this.props.currentUser.user.id)
 
     // if (!this.props.savedJobs) {
     //   return <div>Loading</div>;
@@ -201,4 +211,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

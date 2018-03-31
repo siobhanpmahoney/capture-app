@@ -48,7 +48,7 @@ const user = (state = {currentUser: null, savedJobs: [], savedCompanies: [], sav
       return state;
 
     case ADD_NEW_NOTE:
-    
+
       let userNotes = state.savedNotes
 
     state=Object.assign({},
@@ -73,15 +73,14 @@ const user = (state = {currentUser: null, savedJobs: [], savedCompanies: [], sav
 
     case ADD_NEW_BOOKMARK:
       let userBookmarks = state.savedBookmarks
-      console.log(userBookmarks)
-      console.log(action.newBookmark)
+
       state = Object.assign({},
         state,
         {
           savedBookmarks: [...userBookmarks, action.newBookmark],
         }
       );
-      console.log(state)
+
       return state;
 
 

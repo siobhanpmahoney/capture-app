@@ -46,7 +46,7 @@ class JobSuggestionContainer extends React.Component {
     if (this.state.suggestedJobs == []) {
       return <div>Loading...</div>
     }
-    console.log(this.state.suggestedJobs)
+
     return (
       <div>
 
