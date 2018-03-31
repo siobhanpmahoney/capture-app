@@ -105,8 +105,9 @@ class App extends Component {
     return this.props.editJob(userId, selectedJob)
   }
 
-  deleteJob = (selectedJobId) => {
-    this.props.deleteJob(selectedJobId)
+  deleteJob = (event, userId, selectedJobId) => {
+    event.preventDefault()
+    return this.props.deleteJob(userId, selectedJobId)
   }
 
   addNewNote = (event, noteUserId, noteJobId, noteCompanyId) => {

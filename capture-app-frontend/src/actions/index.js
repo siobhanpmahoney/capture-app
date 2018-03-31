@@ -25,14 +25,8 @@ export function loadCurrentUser(user) {
 }
 
 export function editJob(userid, selectedJob) {
-  console.log("in editJob action")
-  console.log(userid)
-  console.log(selectedJob)
-  console.log("in editJob action, and this is state.currentUser")
   let url = `http://localhost:3000/api/v1/users/${userid}/jobs/${selectedJob.id}`
   console.log(url)
-
-
   return(dispatch) => {
     return fetch(url,
       {
@@ -71,8 +65,11 @@ export function editJob(userid, selectedJob) {
   }
 }
 
-export function deleteJob(selectedJobId) {
-  let url = "http://localhost:3000/api/v1/users/1/jobs/" + selectedJobId
+export function deleteJob(userid, selectedJobId) {
+  let url = `http://localhost:3000/api/v1/users/${userid}/jobs/${selectedJobId}`
+  debugger
+  console.log("in deleteJob action")
+  console.log("in deleteJob action, url", url)
   return(dispatch) => {
     return fetch(url, {
       method: 'DELETE'

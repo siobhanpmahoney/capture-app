@@ -89,11 +89,15 @@ class MyJobsItemDetail extends React.Component {
   }
 
   deleteJob = () => {
+    let userId = this.props.currentUser.user.id
+    let jobId = this.state.job.id
     this.setState({
       saved: false
     })
+
+    this.props.deleteJob(userId, jobId)
     window.location = '/myjobs'
-    this.props.deleteJob(this.state.jobId)
+
   }
 
   dashboardListener = (event) => {

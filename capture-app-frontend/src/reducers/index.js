@@ -46,7 +46,12 @@ const user = (state = {currentUser: null, savedJobs: [], savedCompanies: [], sav
       );
 
     case DELETE_JOB:
-      const jobs = state.savedJobs.filter((job) => job.id != action.selectedJobId)
+      console.log("in DELETE_JOB reducer")
+      const jobs = state.savedJobs.filter((job) => {
+        return job.id != action.selectedJobId
+      })
+      console.log("in DELETE_JOB reducer, jobs", jobs)
+      debugger
       state = Object.assign({},
         state, {
           savedJobs: jobs,
