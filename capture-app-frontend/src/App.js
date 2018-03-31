@@ -120,7 +120,7 @@ class App extends Component {
   }
 
   addBookmark = (bookmarkTitle, bookmarkSourceName, bookmarkSummary, bookmarkUrl, bookmarkUserId, bookmarkCompanyId) => {
-    console.log(bookmarkTitle, bookmarkSourceName, bookmarkSummary, bookmarkUrl, bookmarkUserId, bookmarkCompanyId)
+
     this.props.addNewBookmark(bookmarkTitle, bookmarkSourceName, bookmarkSummary, bookmarkUrl, bookmarkUserId, bookmarkCompanyId)
   }
 

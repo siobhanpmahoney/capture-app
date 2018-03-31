@@ -1,6 +1,7 @@
 import React from 'react'
 import JobSearchResultItem from './JobSearchResultItem'
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router'
 import { connect } from 'react-redux';
 import * as Actions from '../../actions'
 
@@ -33,4 +34,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobSearchResultList);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(JobSearchResultList));

@@ -26,11 +26,11 @@ class JobSearchResultItem extends React.Component {
   }
 
   saveJob = (event) => {
-
     event.preventDefault()
-
-
-    this.props.addToSavedJobs(this.props.job)
+    let userId = this.props.currentUser.user.id
+    let job = this.props.job
+    debugger
+    this.props.saveNewJob(userId, job)
 
   }
 
@@ -51,6 +51,9 @@ class JobSearchResultItem extends React.Component {
     }
 
   render() {
+    console.log(this.props)
+    let p = this.props
+
 
 
     return (
@@ -91,4 +94,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobSearchResultItem);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(JobSearchResultItem));

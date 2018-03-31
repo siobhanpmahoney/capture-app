@@ -34,7 +34,7 @@ class MyCompanyContainer extends React.Component {
     if (!this.props.savedCompanies) {
       return <div>Loading...</div>
     }
-  
+
     return (
       <div>
         <h1>Saved Companies</h1>
@@ -77,4 +77,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyCompanyContainer);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MyCompanyContainer));

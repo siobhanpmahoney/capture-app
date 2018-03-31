@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Switch, withRouter} from 'react-router-dom';
 import MyJobsItemDetail from './MyJobsItemDetail'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
@@ -59,4 +59,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyJobsItem)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MyJobsItem))

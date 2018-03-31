@@ -1,6 +1,10 @@
 import React from 'react'
 import JobFilter from './JobFilter'
 import JobSearchResultList from './JobSearchResultList'
+import { withRouter } from 'react-router'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as Actions from '../../actions'
 
 class JobExploreContainer extends React.Component {
     constructor(props) {
@@ -104,4 +108,20 @@ class JobExploreContainer extends React.Component {
 
 }
 
-export default JobExploreContainer
+function mapStateToProps(state, props) {
+  return {
+    currentUser: state.user.currentUser,
+    savedJobs: state.user.savedJobs,
+    savedCompanies: state.user.savedCompanies,
+    savedNotes: state.user.savedNotes,
+    savedBookmarks: state.user.savedBookmarks,
+    savedCategories: state.user.savedCategories,
+    savedIndustries: state.user.savedIndustries
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(Actions, dispatch);
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(JobExploreContainer));
