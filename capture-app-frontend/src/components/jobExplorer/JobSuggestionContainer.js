@@ -48,8 +48,8 @@ class JobSuggestionContainer extends React.Component {
     }
 
     return (
-      <div>
-
+      <div className="job">
+        <span style={{fontWeight:"660", fontSize:"28px", color:"#435362", fontFamily:"Gill Sans", padding:"0.5em"}}>Suggested Jobs</span>
         <div>
 
         {this.state.suggestedJobs.map((j) => {

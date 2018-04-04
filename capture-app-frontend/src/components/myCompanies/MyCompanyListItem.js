@@ -9,9 +9,9 @@ import MyCompanyDetail from './MyCompanyDetail'
 class MyCompanyListItem extends React.Component {
 
   render() {
-  
+
     return (
-      <div className="companySearchResultCard">
+      <div className="companySearchResultCard" style={{background:"white"}}>
 
        <h4> {this.props.company.name}</h4>
      <div className="location">{this.props.company.location}</div>

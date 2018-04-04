@@ -27,7 +27,7 @@ class NavBar extends React.Component {
   renderHTML = () => {
     if (!!this.props.currentUser) {
       return (
-        <span style={{backgroundColor:"white", padding:"1em", margin:"1em"}}>
+        <span style={{backgroundColor:"backgroundColor: #ffffffbd", padding:"1em", margin:"1em"}}>
 
           <span style={{float:"right", style:"inline"}}>
         <NavLink to="/" exact style={link} activeStyle={{backgroundColor:'#7FE6E1', color:"white", textDecoration:"none"}}>Profile</NavLink>
@@ -63,8 +63,10 @@ class NavBar extends React.Component {
 
   render() {
     return (
-      <div className="navbar" style={{backgroundColor:"white", padding:"1em"}}>
-        <span style={{color:"#30c9e8", fontSize:"42px", fontWeight:"800", fontFamily:"Montserrat", style:"inline", marginTop:"0.75em", padding:"0.75em"}}>Capture</span>
+      <div className="navbar" style={{backgroundColor:"#ffffffbd", padding:"1.5em"}}>
+        <span style={{color:"#F15F79", fontSize:"42px", fontWeight:"700", fontFamily:"Gill Sans", style:"inline", marginTop:"0.75em", fontSize:"3.75em", padding:"1.25em"}}
+          >
+          Capture</span>
         {this.renderHTML()}
       </div>)
     }

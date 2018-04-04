@@ -2,7 +2,9 @@ import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as Actions from '../../actions'
-import CompanySearchResultList from './CompanySearchResultList'
+// import CompanySearchResultList from './CompanySearchResultList'
+import CompanySearchResultItem from './CompanySearchResultItem'
+
 
 class CompanySuggestionContainer extends React.Component {
   constructor(props) {
@@ -41,9 +43,14 @@ class CompanySuggestionContainer extends React.Component {
       return <div>Loading...</div>
     }
     return (
-      <div style={{margin:"2em"}}>
-        <h2>Check out these Companies!</h2>
-        <CompanySearchResultList companySearchResults={this.state.companySearchResults} />
+      <div>
+        <span style={{fontWeight:"700", fontSize:"28px", color:"#435362", fontFamily:"Gill Sans", padding: "0.5em"}}>Check out these Companies!</span>
+        <div className="companySearchResults">
+          {this.state.companySearchResults.map((company) => {
+            return<div><CompanySearchResultItem company={company} key={company.id} /></div>
+          })}
+        </div>
+
       </div>
     )
   }

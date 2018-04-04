@@ -1,7 +1,7 @@
 import React from 'react'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Link, Route, Switch, withRouter} from 'react-router-dom';
 import * as Actions from '../../actions'
 import CompanyDetail from './CompanyDetail'
 
@@ -27,9 +27,8 @@ class CompanySearchResultItem extends React.Component {
 
   render() {
     return (
-      <div>
 
-      <div className="companySearchResultCard">
+      <div className="companySearchResultCard" style={{background:"white"}}>
 
 
         {this.props.company.refs &&
@@ -42,7 +41,7 @@ class CompanySearchResultItem extends React.Component {
 
 
       </div>
-      </div>
+
     )
   }
 }
