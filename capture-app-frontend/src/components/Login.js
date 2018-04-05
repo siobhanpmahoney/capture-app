@@ -51,15 +51,49 @@ class Login extends React.Component {
     })
   }
 
+  signUpUser = (event) => {
+    event.preventDefault()
+    fetch("http://localhost:3000/api/v1/signup", {
+      method: 'POST',
+      headers:
+      {
+        'Content-Type': 'application/json',
+        Accepts: 'application/json',
+      },
+      body: JSON.stringify({user: this.state.credentials})
+    })
+      .then(res => res.json())
+      .then(resp => {
+        if (resp.error) {
+          alert(resp.error)
+        } else {
+          window.location = `/`
+          this.props.setLoggedInUser(resp)
+        }
+      })
+      }
+  
+
+
+
   render() {
-    console.log(this.props)
+
     return (
       <div className="login">
 
+        <h3>Sign In</h3>
       <form>
       <input type="text" name="username" onChange={this.formListener} />
       <input type="password" name="password" onChange={this.formListener} />
       <button className="buttons" onClick={this.loginUser}>Login</button>
+      </form>
+
+      <h3>Sign Up</h3>
+      <form>
+        <input type="text" name="username" onChange={this.formListener} />
+        <input type="password" name="password" onChange={this.formListener} />
+        <input type="password" name="password_confirmation" onChange={this.formListener} />
+        <button className="buttons" onClick={this.signUpUser}>Sign Up</button>
       </form>
       </div>
     )

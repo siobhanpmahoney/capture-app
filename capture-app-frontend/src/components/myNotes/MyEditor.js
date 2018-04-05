@@ -34,7 +34,7 @@ class MyEditor extends React.Component {
       editorState: EditorState.createEmpty()
     };
     this.onChange = (editorState) => this.setState({editorState});
-    this.logState = () => console.log(this.state.editorState);
+    this.logState = () => console.log(this.state.editorState.toJS());
     this.setDomEditorRef = ref => this.domEditor = ref;
   }
   //

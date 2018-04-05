@@ -19,14 +19,18 @@ const user = (state = {currentUser: null, savedJobs: [], savedCompanies: [], sav
       return state;
 
 
+
+
     case ADD_NEW_JOB:
+    console.log("in reducer")
       state = Object.assign({},
         state,
         {
           savedJobs: action.savedJobs,
         }
       );
-      return state;
+      console.log(state.savedCompanies)
+    return state;
 
     case EDIT_JOB:
       let index = state.savedJobs.findIndex((job) => {

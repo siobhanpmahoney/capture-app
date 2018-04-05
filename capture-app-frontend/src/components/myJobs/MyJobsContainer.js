@@ -50,7 +50,7 @@ class MyJobsContainer extends React.Component {
 
 
   render() {
-
+    console.log(this.props.savedJobs)
     const displayJobs = this.showJobs()
 
     return(

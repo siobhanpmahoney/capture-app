@@ -7,7 +7,6 @@ import * as Actions from '../../actions'
 import NotesContainer from '../myNotes/NotesContainer'
 import NoteCreate from '../myNotes/NoteCreate'
 
-import MyEditor from '../myNotes/MyEditor'
 
 
 import BookmarkList from '../myBookmarks/BookmarkList'
@@ -263,17 +262,13 @@ class MyJobsItemDetail extends React.Component {
 
 
   render() {
-    console.log(this.state.job)
+    console.log(this.props.tryCompany)
     if (!this.state.job) {
       return <div>Loading</div>;
       }
 
       return (
         <div className="myJobDetail">
-          <div>
-            Editor:
-            <MyEditor />
-          </div>
           <div className="header">
           <h2 className="myJobTitle">{this.state.job.title}</h2>
           <h3 className="myJobDetailCompanyName">{this.props.company.name}</h3>

@@ -84,6 +84,7 @@ export function deleteJob(userid, selectedJobId) {
 }
 
 export function saveNewJob(userid, selectedJob) {
+  console.log("in action", selectedJob)
   return(dispatch) => {
     fetch(`http://localhost:3000/api/v1/users/${userid}/jobs`,
       {

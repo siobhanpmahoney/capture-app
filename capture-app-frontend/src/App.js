@@ -178,13 +178,11 @@ class App extends Component {
 
         <Route exact path="/myjobs" render={() => <MyJobsContainer savedJobs={this.props.savedJobs} user={this.props.currentUser} addToSavedJobs={this.addToSavedJobs} savedCompanies={this.props.savedCompanies} loadSavedJob={this.props.loadSavedJob} savedNotes={this.props.savedNotes} />} />
 
-      <Route path="/myjobs/:jobId" render={(props) => <MyJobsItemDetail
-          user={this.props.currentUser} jobId={props.match.params.jobId} addBookmark = {this.addBookmark}
-           job={this.props.savedJobs.find((job) => job.id == props.match.params.jobId)}
+      <Route path="/myjobs/:jobId" render={(props) => <MyJobsItemDetail user={this.props.currentUser} jobId={props.match.params.jobId} addBookmark = {this.addBookmark} job={this.props.savedJobs.find((job) => job.id == props.match.params.jobId)}
 
-           company = {this.props.savedCompanies.find((company) => company.id == this.props.savedJobs.find((job) => job.id == props.match.params.jobId).company_id)}
+        company = {this.props.savedCompanies.find((co) => co.id == this.props.savedJobs.find((job) => job.id == props.match.params.jobId).company_id)} 
 
-           savedJobs={this.props.savedJobs} savedCompanies={this.props.savedCompanies} savedNotes={this.props.savedNotes} relevantNotes={this.relevantNotes(props.match.params.jobId)} editJob={this.props.editJob} addJob={this.props.addJob}  addNewNote={this.props.addNewNote} editNote={this.editNote} renderedJob={this.props.renderedJob} renderedCompany={this.props.renderedCompany} /> } />
+        savedJobs={this.props.savedJobs} savedCompanies={this.props.savedCompanies} savedNotes={this.props.savedNotes} relevantNotes={this.relevantNotes(props.match.params.jobId)} editJob={this.props.editJob} addJob={this.props.addJob}  addNewNote={this.props.addNewNote} editNote={this.editNote} renderedJob={this.props.renderedJob} renderedCompany={this.props.renderedCompany} /> } />
 
         </div>
       </Router>
@@ -192,7 +190,6 @@ class App extends Component {
   }
 
 }
-
 
 
 function mapStateToProps(state, props) {

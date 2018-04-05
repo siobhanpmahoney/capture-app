@@ -6,13 +6,15 @@ import * as Actions from '../../actions'
 class BookmarkList extends React.Component {
 
   render() {
-  
+
     return (
       <div>
 
         {this.props.bookmarks.map((bookmark) => {
-          return <div style={{padding:"0.5em", margin:"1.25em", borderColor:"#ABDEE8", borderStyle:"solid"}}><details>
-            <summary style={{background:"#ABDEE8", padding:"0.5em", fontFamily:"calibri", color:"white"}}>
+          return <div style={{padding:"0.5em", margin:"1.25em", borderColor:"clear", background:"linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%"}}>
+            <div style={{background:"ffffff00"}}>
+            <details>
+            <summary style={{background:"white 50%", padding:"0.5em", fontFamily:"calibri", color:"#7FE6E1"}}>
               <a href={bookmark.url} target="_blank">{bookmark.title}</a>
             </summary>
             <div style={{background:"white", fontSize:"14px", padding:"0.5em", fontFamily:"calibri"}}>
@@ -20,7 +22,7 @@ class BookmarkList extends React.Component {
               {bookmark.summary}
 
             </div>
-        </details></div>
+        </details></div></div>
         })}
       </div>
     )

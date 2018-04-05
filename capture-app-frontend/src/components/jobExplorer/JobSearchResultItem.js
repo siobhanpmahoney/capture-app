@@ -51,7 +51,7 @@ class JobSearchResultItem extends React.Component {
     }
 
   render() {
-    console.log(this.props)
+
     let p = this.props
 
 
@@ -94,4 +94,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(Actions, dispatch);
 }
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(JobSearchResultItem));
+export default connect(mapStateToProps, mapDispatchToProps)(JobSearchResultItem);
