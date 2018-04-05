@@ -36,7 +36,9 @@ class MyJobsItemDetail extends React.Component {
     console.log(p.jobs)
 
     let j = this.props.job
-    let c = this.props.company
+    let c = this.props.savedCompanies.find((co) => {
+      return co.id == this.props.job.company_id
+    })
     let job_notes = this.props.savedNotes.filter((note) => {
       return note.company_id == j.company_id
     })
@@ -262,7 +264,8 @@ class MyJobsItemDetail extends React.Component {
 
 
   render() {
-    console.log(this.props.tryCompany)
+    
+    debugger
     if (!this.state.job) {
       return <div>Loading</div>;
       }

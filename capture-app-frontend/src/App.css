@@ -51,6 +51,11 @@ input[type=submit] {
   padding: 6px 6px;
 }
 
+.login {
+  margin: 1em;
+  padding: 1em
+}
+
 .login input[type=text], input[type=password] {
   border: 1px solid #00A8CA;
   color: #00A8CA;

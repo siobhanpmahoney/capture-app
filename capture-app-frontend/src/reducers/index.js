@@ -29,7 +29,7 @@ const user = (state = {currentUser: null, savedJobs: [], savedCompanies: [], sav
           savedJobs: action.savedJobs,
         }
       );
-      console.log(state.savedCompanies)
+      console.log(state)
     return state;
 
     case EDIT_JOB:
