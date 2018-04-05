@@ -129,7 +129,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     @user.jobs << @job
-    render json: @user.jobs
+    render json: {jobs: @user.jobs, companies: @user.user_companies}
   end
 
   def update_job

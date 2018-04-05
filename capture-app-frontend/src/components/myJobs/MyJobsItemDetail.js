@@ -199,13 +199,13 @@ class MyJobsItemDetail extends React.Component {
 
     return this.props.savedNotes.filter((note) => {
 
-      return note.company_id == this.props.company.id
+      return note.company_id == this.props.job.company_id
     })
   }
 
   relevantBookmarks = () => {
     return this.props.savedBookmarks.filter((bookmark) => {
-      return bookmark.company_id == this.props.company.id
+      return bookmark.company_id == this.props.job.company_id
     })
   }
 
@@ -237,7 +237,7 @@ class MyJobsItemDetail extends React.Component {
         return(
           <div className="company">
 
-          <MyCompanyDetail user={this.props.currentUser} addBookmark = {this.props.addBookmark} companyId={this.props.company.id}/>
+          <MyCompanyDetail user={this.props.currentUser} addBookmark = {this.props.addBookmark} companyId={this.props.jobcompany_id}/>
         </div>
       )}
     else {
@@ -264,17 +264,19 @@ class MyJobsItemDetail extends React.Component {
 
 
   render() {
-    
-    debugger
-    if (!this.state.job) {
-      return <div>Loading</div>;
+
+  debugger
+  if (!this.state.job) {
+    return <div>Loading</div>;
       }
+
+
 
       return (
         <div className="myJobDetail">
           <div className="header">
           <h2 className="myJobTitle">{this.state.job.title}</h2>
-          <h3 className="myJobDetailCompanyName">{this.props.company.name}</h3>
+          <h3 className="myJobDetailCompanyName">{this.state.company.name}</h3>
           </div>
 
           <div className="myJobDetailDashboard">

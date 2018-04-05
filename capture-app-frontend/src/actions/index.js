@@ -112,7 +112,8 @@ export function saveNewJob(userid, selectedJob) {
       .then(response => response.json())
       .then(json => dispatch({
         type: ADD_NEW_JOB,
-        savedJobs: json
+        savedJobs: json.jobs,
+        savedCompanies: json.companies
       })
     )
   }

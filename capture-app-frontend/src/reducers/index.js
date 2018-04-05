@@ -27,6 +27,7 @@ const user = (state = {currentUser: null, savedJobs: [], savedCompanies: [], sav
         state,
         {
           savedJobs: action.savedJobs,
+          savedCompanies: action.savedCompanies
         }
       );
       console.log(state)
