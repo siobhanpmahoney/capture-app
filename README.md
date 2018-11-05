@@ -1,3 +1,5 @@
+## *Note:* This project has been deployed [here](https://capture-jobs.herokuapp.com/login), and the [frontend](/https://github.com/siobhanpmahoney/ind-capture-jobs-frontend) and [backend](https://github.com/siobhanpmahoney/ind-capture-jobs-api) code for the deployed version has been split into the linked repos.
+
 # Capture.
 
 Job search management tool. Search job opportunities, track application and interview progress, and organize research and notes.
