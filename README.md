@@ -4,6 +4,10 @@ Job search management tool. Search job opportunities, track application and inte
 
 ## Demo
 
+A video demo of Capture is available on [YouTube](https://www.youtube.com/watch?v=LtX2sFyvuFA).
+
+Interested in giving Capture a try? Great! Try out the [live app](https://capture-jobs.herokuapp.com/login)!
+
 ## Usage and Features
 
 Capture. streamlines the job search by offering a single platform for finding job opportunities, collecting research, organizing notes, tracking progress with applications and interviews.
